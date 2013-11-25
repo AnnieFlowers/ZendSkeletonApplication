@@ -20,6 +20,35 @@ return array(
                     ),
                 ),
             ),
+        		'hola' => array(
+        				'type' => 'Zend\Mvc\Router\Http\Literal',
+        				'options' => array(
+        						
+        						'route'    => '/hola',
+        						'defaults' => array(
+        								'controller' => 'Application\Controller\Index',
+        								'action'     => 'hola',
+        						),
+        				),
+        		),
+        		
+        		'hola2'=> array(
+        			'type' => 'Segment',
+        			'options'=> array(
+        				'route' => '/hola2[/:controller[/:action[/:Ncontrol]]]',
+        				
+        				'defaults' => array(
+        					'controller' => '[a-zA-Z][a-zA-Z0-9_-]+',
+        					'action' => '[a-zA-Z][a-zA-Z0-9_-]+',
+        				),
+        				'defaults' => array (
+        				'__NAMESPACE__' => 'Application\Controller',
+        				'controller' => 'index',
+        				'action' => 'hola',
+        				'Ncontrol' => 11390237,
+        				),
+        			),		
+        		),			       		
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
@@ -27,6 +56,7 @@ return array(
             'application' => array(
                 'type'    => 'Literal',
                 'options' => array(
+                
                     'route'    => '/application',
                     'defaults' => array(
                         '__NAMESPACE__' => 'Application\Controller',
